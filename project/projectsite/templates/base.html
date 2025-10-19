@@ -145,7 +145,7 @@
 							</a>
 							<div class="clearfix"></div>
 
-							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+							<div class="collapse in" id="collapseExample" aria-expanded="true" style ="">
 								<ul class="nav">
 									<li>
 										<a href="#profile">
@@ -225,16 +225,9 @@
 				</div>
 			</div>
 			<div class="main-panel">
-				<div class="content">
-					<div class="container-fluid">
-						<h4 class="page-title">Typography</h4>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Card Title</div>
-										<div class="card-category">Card Category</div>
-									</div>
+                {% block content %}
+                {% endblock %}
+								</div>
 									<div class="card-body">
 										<table class="table table-typo">
 											<tbody>
