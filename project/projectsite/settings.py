@@ -49,14 +49,17 @@ INSTALLED_APPS = [
     'widget_tweaks',
 ]
 if os.environ.get('PYTHONANYWHERE_SITE') == 'daepsean.pythonanywhere.com':
-    SITE_ID = 2 
+    SITE_ID = 2
 else:
     hostname = socket.gethostname()
 
     if 'daepsean' in hostname and 'pythonanywhere' in hostname:
-        SITE_ID = 2 
+        SITE_ID = 2
     else:
-        SITE_ID = 3 
+        # Use SITE_ID 2 because this project creates a Site with id=2 in the
+        # current database (see django_site table). Setting 2 avoids
+        # "Site matching query does not exist" errors during local dev.
+        SITE_ID = 2
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
