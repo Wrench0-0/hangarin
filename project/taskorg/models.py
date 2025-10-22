@@ -80,3 +80,39 @@ class SubTask(BaseModel):
 
 
 # Create your models here.
+
+
+class College(BaseModel):
+    id = models.AutoField(primary_key=True)
+    college_name = models.CharField(max_length=120)
+
+    class Meta:
+        verbose_name = "College"
+        verbose_name_plural = "Colleges"
+
+    def __str__(self):
+        return self.college_name
+
+
+class Program(BaseModel):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=120)
+    prog_name = models.CharField(max_length=120, blank=True)
+    description = models.TextField(blank=True)
+    college = models.ForeignKey(College, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Program"
+        verbose_name_plural = "Programs"
+
+    def __str__(self):
+        return self.name
+
+
+# Keep compatibility with existing code that expects an `Organization` model
+# `OrganizationForm` referenced `Organization` so provide an alias model name.
+class Organization(Program):
+    class Meta:
+        proxy = True
+        verbose_name = "Organization"
+        verbose_name_plural = "Organizations"

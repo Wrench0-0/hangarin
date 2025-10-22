@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView
 from taskorg.models import Program
 from taskorg.forms import OrganizationForm 
 from django.urls import reverse_lazy
@@ -38,20 +39,24 @@ class OrganizationList(ListView):
           )
        return qs
 
- class OrganizationCreateView(CreateView):
+
+class OrganizationCreateView(CreateView):
     model = Program
     form_class = OrganizationForm
     template_name = 'org_form.html'
     success_url = reverse_lazy('organization-list')
 
- class OrganizationUpdateView(UpdateView):
+class OrganizationUpdateView(UpdateView):
     model = Program
     form_class = OrganizationForm
     template_name = 'org_form.html'
     success_url = reverse_lazy('organization-list')
 
- class OrganizationDeleteView(DeleteView):
+class OrganizationDeleteView(DeleteView):
     model = Program
     template_name = 'org_del.html'
     success_url = reverse_lazy('organization-list')
 # Create your views here.
+
+class HomePageView(TemplateView):
+   template_name = 'home.html'
