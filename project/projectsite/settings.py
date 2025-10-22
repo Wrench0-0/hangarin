@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import socket
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,11 +48,21 @@ INSTALLED_APPS = [
     'taskorg',
     'widget_tweaks',
 ]
-SITE_ID = 2
+if os.environ.get('PYTHONANYWHERE_SITE') == 'daepsean.pythonanywhere.com':
+    SITE_ID = 2 
+else:
+    hostname = socket.gethostname()
+
+    if 'daepsean' in hostname and 'pythonanywhere' in hostname:
+        SITE_ID = 2 
+    else:
+        SITE_ID = 3 
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,7 +76,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'projectsite.urls'
-import os 
 
 TEMPLATES = [
     {
