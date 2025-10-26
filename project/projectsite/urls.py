@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin 
 from django.urls import path, include
+from django.urls import path, include
 from taskorg.views import (
     HomePageView, CategoryListView, CategoryCreateView, CategoryUpdateView, CategoryDeleteView,
     PriorityListView, PriorityCreateView, PriorityUpdateView, PriorityDeleteView,
@@ -26,6 +27,7 @@ from taskorg.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('pwa.urls')),
     path('accounts/', include('allauth.urls')),  # allauth routes
     path('', HomePageView.as_view(), name='home'),
     
