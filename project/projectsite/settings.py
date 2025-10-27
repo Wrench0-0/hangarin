@@ -14,17 +14,15 @@ from pathlib import Path
 import socket
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
+
 SECRET_KEY = 'django-insecure--7!6k%figys@s^^+qp!=w@xqd*t15g12nncj34mc+pl92f%y-s'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ['127.0.0.1', 'localhost', 'daepsean.pythonanywhere.com']
@@ -57,9 +55,6 @@ else:
     if 'daepsean' in hostname and 'pythonanywhere' in hostname:
         SITE_ID = 2
     else:
-        # Use SITE_ID 2 because this project creates a Site with id=2 in the
-        # current database (see django_site table). Setting 2 avoids
-        # "Site matching query does not exist" errors during local dev.
         SITE_ID = 2
 
 AUTHENTICATION_BACKENDS = [
@@ -161,12 +156,12 @@ BASE_DIR / 'static',
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = '/accounts/login/' # where @login_required will send users
-LOGIN_REDIRECT_URL = '/' # where to go after successful login
-LOGOUT_REDIRECT_URL = '/accounts/login/' # after logout, go back to login
-ACCOUNT_LOGOUT_REDIRECT_URL = '/' # where to redirect after logout
-ACCOUNT_LOGOUT_ON_GET = True # logout immediately on GET
-ACCOUNT_LOGIN_METHODS = {"username", "email"} # allow login with username OR email
+LOGIN_URL = '/accounts/login/' 
+LOGIN_REDIRECT_URL = '/' 
+LOGOUT_REDIRECT_URL = '/accounts/login/' 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/' 
+ACCOUNT_LOGOUT_ON_GET = True 
+ACCOUNT_LOGIN_METHODS = {"username", "email"} 
 ACCOUNT_SIGNUP_FIELDS = [
     "username*",
     "email*",

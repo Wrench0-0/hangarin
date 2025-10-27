@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from faker import Faker
 from django.utils import timezone
-from taskorg.models import Category, Priority, Task, SubTask, Note
+from HanggarinApp.models import Category, Priority, Task, SubTask, Note
 
 class Command(BaseCommand):
     help = 'Create initial data for the web application'

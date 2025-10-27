@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from taskorg.models import Task, Category, Priority, SubTask, Note
+from HanggarinApp.models import Task, Category, Priority, SubTask, Note
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.utils import timezone
