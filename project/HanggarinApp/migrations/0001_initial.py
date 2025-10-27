@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True)),
                 ('status', models.CharField(choices=[('Pending', 'Pending'), ('In Progress', 'In Progress'), ('Completed', 'Completed')], default='Pending', max_length=50)),
                 ('deadline', models.DateTimeField(blank=True, null=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks', to='taskorg.category')),
-                ('priority', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks', to='taskorg.priority')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks', to='HanggarinApp.category')),
+                ('priority', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tasks', to='HanggarinApp.priority')),
             ],
             options={
                 'abstract': False,
@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('title', models.CharField(max_length=200)),
                 ('status', models.CharField(choices=[('Pending', 'Pending'), ('In Progress', 'In Progress'), ('Completed', 'Completed')], default='Pending', max_length=50)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subtasks', to='taskorg.task')),
+                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subtasks', to='HanggarinApp.task')),
             ],
             options={
                 'abstract': False,
@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('content', models.TextField()),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='notes', to='taskorg.task')),
+                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='notes', to='HanggarinApp.task')),
             ],
             options={
                 'abstract': False,
