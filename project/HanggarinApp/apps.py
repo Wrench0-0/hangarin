@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TaskorgConfig(AppConfig):
+class HanggarinAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'taskorg'
+    name = 'HanggarinApp'
